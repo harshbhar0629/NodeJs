@@ -1,0 +1,6 @@
+first check for npm using cmd => npm -v
+second cmd => npm init
+it will ask the name if you don't want to change name then press enter o/w enter name
+description : anything
+most of the things remains same press enter
+and after it will give you package.json file
