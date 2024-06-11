@@ -1,5 +1,6 @@
 /** @format */
 //  for more details:  https://github.com/telegraf/telegraf
+const axios = require("axios");
 const { Telegraf } = require("telegraf");
 
 /**
@@ -206,6 +207,14 @@ bot.hears("how can I contact to him", (ctx) =>
 		`Through via linkedin click here 👉👉 https://www.linkedin.com/in/harsh-bhardwaj-28491a249/`
 	)
 );
+
+bot.hears("n queens", async (ctx) => {
+	const response = await axios.get(
+		"https://raw.githubusercontent.com/harshbhar0629/cppRepository/main/LB/Cses_problemSet/1_n_queens.cpp"
+	);
+	// console.log(response.data);
+	return ctx.reply(response.data);
+});
 
 bot.on("sticker", (ctx) => ctx.reply("❤"));
 bot.on("emoji", (ctx) => ctx.reply("Always Happy"));
