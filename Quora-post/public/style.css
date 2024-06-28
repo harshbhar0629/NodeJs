@@ -1,0 +1,25 @@
+body{
+    background-color: rgb(90, 88, 88);
+}
+
+div{
+    background-color: rgb(65, 39, 7);
+}
+
+h1{
+    color: red;
+    margin: 0px auto;
+    text-align: center;
+}
+
+h2{
+    font-style: italic;
+    color: rgb(85, 87, 87);
+}
+
+h3{
+    color: violet;
+}
+a{
+    color:rgb(104, 243, 24)
+}
