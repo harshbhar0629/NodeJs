@@ -2,20 +2,22 @@ const express = require("express");
 const app = express();
 const port = 3000;
 const path = require("path");
-let id = 1;
+const { v4: uuidv4 } = require("uuid");
+
+
 let posts = [
     {
-        id: id++,
+        id: uuidv4(),
         username: "Harsh",
         content: "I Love Coding"
     },
     {   
-        id: id++,
+        id: uuidv4(),
         username: "Hello",
         content: "Love Coding"
     },
     {
-        id: id++,
+        id: uuidv4(),
         username: "Random",
         content: "Backend developer"
     }
@@ -47,15 +49,23 @@ app.get("/posts/new", (req, res) => {
 app.post("/posts", (req, res) => {
     console.log(req.body);
     let { username, content } = req.body;
-    posts.push({ username, content, id });
-    id++;
+    let id = uuidv4();
+    posts.push({ id, username, content });
     res.redirect("/posts");
 })
 
 app.get("/posts/:id", (req, res) => {
-    console.log(req.params);
-    let { newId } = req.params;
-    
-    console.log(newPosts);
-    res.send("Id post working")
+    let { id } = req.params;
+    // posts.find()
+    let post = posts.find((p) => id === p.id);
+    console.log(post);
+    // res.send("Hello");
+    res.render("show.ejs", { post });
+});
+
+app.patch("/posts/:id", (req, res) => {
+    let { id } = req.params;
+    let post = posts.find((p) => p.id === id);
+    console.log(post);
+    res.send("Patch req working");
 })

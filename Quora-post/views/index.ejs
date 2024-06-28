@@ -12,7 +12,9 @@
         <div>
             <h2>@ <%= post.username %> </h2>
             <h3> <%= post.content %> </h3>
-            <h4> <%= post.id %></h4>
+            <br>
+            <a href="http://localhost:3000/posts/<%=post.id%>">See in Detail</a>
+            <a href="http://localhost:3000/posts/<%=post.id%>">Edit post</a>
         </div>
     <% } %>
     <br><br>
