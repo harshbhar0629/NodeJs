@@ -15,6 +15,10 @@ let middleStream = new transformStream.Transform({
     transform(chunk, enc, nextCB) {
         let modifiedChunk = chunk.toString().toUpperCase();
         this.push(modifiedChunk);
+
+        console.log("\n\n\n\n\n\n\n\n")
+        console.log(modifiedChunk.length); // 65536
+        console.log("\n\n\n\n\n\n\n\n");
         setTimeout(() => {
             nextCB();
         }, 2000); // it give delay of 1second otherwise nextCB immediately get execute
